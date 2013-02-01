@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GuidesROR</title>
+  <%= stylesheet_link_tag	"application", :media => "all" %>
+  <%= javascript_include_tag "http://code.jquery.com/jquery-1.9.0.min.js" %>
+  <%= javascript_include_tag	"application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="backgroud: #EEEEEE;">
+
+	<%= form_tag("/search", method: :get) do %>
+	<%= search_field_tag "Search" %>
+<% end %>
+
+	<%= select_date Date.today,:prefix => :start_date %>
+
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
+	<div id="user_new">
+		<% if user_signed_in? %>
+			Welcome, <b><%= current_user.username %></b>
+			<aside><%= link_to "Sign_out", destroy_user_session_url, method: :delete %></aside>
+	
+		<% else %>
+			<%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Sing In", new_user_session_path %>
+		<% end %>
+	</div>
+	
+<%= yield %>
+</body>
+</html>

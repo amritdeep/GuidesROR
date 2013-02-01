@@ -1,0 +1,16 @@
+<h2>Comment</h2>
+---------------------------------------------------------------------
+<div id="comments">
+<br>
+<% @post.comments.each do |c|%>
+
+<strong><%= current_user.username %></strong> on <%= c.created_at.strftime('%b %d, %Y at %I:%M %p') %><br>
+<%= c.body %> 
+<%=  link_to "Delete Comment", [c.post, c], method: :delete, :confirm => "Are you sure?" %>
+
+<br>
+-------------------------------------------------------------------
+<br>
+<% end %>
+
+</div>

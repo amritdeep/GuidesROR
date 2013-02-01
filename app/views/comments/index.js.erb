@@ -1,0 +1,6 @@
+$('.action').live('click', function(event){
+	$.ajax({
+		url: $(this).href,
+		dataTypes: 'script'
+	});
+});

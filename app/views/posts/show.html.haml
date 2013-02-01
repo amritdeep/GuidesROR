@@ -1,0 +1,6 @@
+.post
+	%h1= @post.name
+.comments
+	@h2 Comments
+	= render '/comments/form'
+	= render '/comments/comment'
